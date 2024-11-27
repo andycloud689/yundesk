@@ -677,7 +677,7 @@ class UpdateMe: Reactor.Component {
     }
 
     event click $(#install-me) {
-        handler.open_url("https://link3.cc/deskicu");
+        handler.open_url("https://link3.cc/deskorg");
         return;
         if (!is_win) {
             handler.open_url("https://rustdesk.com");
