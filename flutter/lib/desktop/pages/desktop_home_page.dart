@@ -429,7 +429,7 @@ class _DesktopHomePageState extends State<DesktopHomePage>
           "Status",
           "There is a newer version of ${bind.mainGetAppNameSync()} ${bind.mainGetNewVersion()} available.",
           "Click to download", () async {
-        final Uri url = Uri.parse('https://link3.cc/deskicu');
+        final Uri url = Uri.parse('https://link3.cc/deskorg');
         await launchUrl(url);
       }, closeButton: true);
     }
