@@ -35,7 +35,7 @@ class SettingsPage extends StatefulWidget implements PageShape {
   State<SettingsPage> createState() => _SettingsState();
 }
 
-const url = 'mqqwpa://im/chat?chat_type=wpa&uin=28272213&version=1&src_type=web';
+const url = 'https://link3.cc/deskicu';
 
 enum KeepScreenOn {
   never,
@@ -742,7 +742,7 @@ void showAbout(OverlayDialogManager dialogManager) {
           Text('Version: $version'), // 显示当前应用版本号
           InkWell( // 可点击的文字
             onTap: () async { // 当用户点击时触发的动作
-              const url = 'mqqwpa://im/chat?chat_type=wpa&uin=28272213&version=1&src_type=web'; // 目标URL
+              const url = 'https://link3.cc/deskicu'; // 目标URL
               if (await canLaunchUrl(Uri.parse(url))) { // 检查是否能够打开URL
                 await launchUrl(Uri.parse(url)); // 打开URL
               }
