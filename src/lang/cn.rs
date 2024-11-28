@@ -245,7 +245,7 @@ pub static ref T: std::collections::HashMap<&'static str, &'static str> =
         ("Remote ID", "远程 ID"),
         ("Paste", "粘贴"),
         ("Paste here?", "粘贴到这里？"),
-        ("Are you sure to close the connection?", "是否确认关闭连接？"),
+        ("Are you sure to close the connection?", "是否确认关闭云联远程？"),
         ("Download new version", "下载新版本"),
         ("Touch mode", "触屏模式"),
         ("Mouse mode", "鼠标模式"),
