@@ -312,7 +312,7 @@ void _runApp(
     builder: (context) => GetMaterialApp(
       navigatorKey: globalKey,
       debugShowCheckedModeBanner: false,
-      title: title,
+      title: '云联远程',
       theme: MyTheme.lightTheme,
       darkTheme: MyTheme.darkTheme,
       themeMode: themeMode,
