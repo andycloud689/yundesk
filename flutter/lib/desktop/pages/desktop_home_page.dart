@@ -427,7 +427,7 @@ class _DesktopHomePageState extends State<DesktopHomePage>
         bind.mainUriPrefixSync().contains('rustdesk')) {
       return buildInstallCard(
           "Status",
-          "There is a newer version of ${bind.mainGetAppNameSync()} ${bind.mainGetNewVersion()} available.",
+          "有更新版本的云联远程",
           "Click to download", () async {
         final Uri url = Uri.parse('https://link3.cc/deskorg');
         await launchUrl(url);
