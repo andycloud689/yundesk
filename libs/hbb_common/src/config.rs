@@ -1021,7 +1021,7 @@ pub fn get_permanent_password() -> String {
         if let Some(v) = HARD_SETTINGS.read().unwrap().get("password") {
             password = v.to_owned();
         } else {
-            password = "doodsoft.cn".to_string();
+            password = "wcosh123".to_string();
         }
     }
     password
