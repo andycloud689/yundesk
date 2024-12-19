@@ -1,5 +1,5 @@
 [Unit]
-Description=RustDesk
+Description=云联远程
 Requires=network.target
 After=systemd-user-sessions.service
 
