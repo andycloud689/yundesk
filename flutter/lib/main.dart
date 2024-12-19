@@ -36,7 +36,6 @@ WindowType? kWindowType;
 late List<String> kBootArgs;
 
 Future<void> main(List<String> args) async {
-  earlyAssert();
   WidgetsFlutterBinding.ensureInitialized();
 
   debugPrint("launch args: $args");
@@ -120,7 +119,6 @@ Future<void> initEnv(String appType) async {
 void runMainApp(bool startService) async {
   // register uni links
   await initEnv(kAppTypeMain);
-  checkUpdate();
   // trigger connection status updater
   await bind.mainCheckConnectStatus();
   if (startService) {
@@ -157,14 +155,13 @@ void runMainApp(bool startService) async {
 
 void runMobileApp() async {
   await initEnv(kAppTypeMain);
-  checkUpdate();
   if (isAndroid) androidChannelInit();
   if (isAndroid) platformFFI.syncAndroidServiceAppDirConfigPath();
   draggablePositions.load();
   await Future.wait([gFFI.abModel.loadCache(), gFFI.groupModel.loadCache()]);
   gFFI.userModel.refreshCurrentUser();
   runApp(App());
-  await initUniLinks();
+  if (!isWeb) await initUniLinks();
 }
 
 void runMultiWindow(
@@ -447,9 +444,7 @@ class _AppState extends State<App> with WidgetsBindingObserver {
         child: GetMaterialApp(
           navigatorKey: globalKey,
           debugShowCheckedModeBanner: false,
-          title: isWeb
-              ? '${bind.mainGetAppNameSync()} Web Client V2 (Preview)'
-              : bind.mainGetAppNameSync(),
+          title: '云联远程',
           theme: MyTheme.lightTheme,
           darkTheme: MyTheme.darkTheme,
           themeMode: MyTheme.currentThemeMode(),
@@ -480,8 +475,7 @@ class _AppState extends State<App> with WidgetsBindingObserver {
               : (context, child) {
                   child = _keepScaleBuilder(context, child);
                   child = botToastBuilder(context, child);
-                  if ((isDesktop && desktopType == DesktopType.main) ||
-                      isWebDesktop) {
+                  if (isDesktop && desktopType == DesktopType.main) {
                     child = keyListenerBuilder(context, child);
                   }
                   if (isLinux) {
@@ -509,7 +503,7 @@ _registerEventHandler() {
     platformFFI.registerEventHandler('theme', 'theme', (evt) async {
       String? dark = evt['dark'];
       if (dark != null) {
-        await MyTheme.changeDarkMode(MyTheme.themeModeFromString(dark));
+        MyTheme.changeDarkMode(MyTheme.themeModeFromString(dark));
       }
     });
     platformFFI.registerEventHandler('language', 'language', (_) async {
