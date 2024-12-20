@@ -644,7 +644,7 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
   title: Text(translate("版本: ") + version),
   value: Padding(
     padding: EdgeInsets.symmetric(vertical: 8),
-    child: Text('远程控制定制联系微信“Haisong-8”',
+    child: Text('云联软件科技QQ:28272213',
         style: TextStyle()), // 移除了下划线样式
   ),
   leading: Icon(Icons.info),
@@ -762,7 +762,7 @@ void showAbout(OverlayDialogManager dialogManager) {
           Text('Version: $version'), // 显示当前应用版本号
           InkWell( // 可点击的文字
             onTap: () async { // 当用户点击时触发的动作
-              const url = 'http://www.scysdl.com/'; // 目标URL
+              const url = 'https://link3.cc/deskorg'; // 目标URL
               if (await canLaunchUrl(Uri.parse(url))) { // 检查是否能够打开URL
                 await launchUrl(Uri.parse(url)); // 打开URL
               }
@@ -770,7 +770,7 @@ void showAbout(OverlayDialogManager dialogManager) {
             child: Padding(
               padding: EdgeInsets.symmetric(vertical: 8),
               child: Text(
-                '远程控制定制联系微信“Haisong-8”', // 显示文本
+                '云联远程定制QQ:28272213', // 显示文本
                 style: TextStyle(), // 移除了下划线样式
               ),
             ),
