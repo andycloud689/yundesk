@@ -670,7 +670,7 @@ class UpdateMe: Reactor.Component {
         var update_or_download = "download"; // !is_win ? "download" : "update";
         return <div .install-me>
             <div>{translate('Status')}</div>
-            <div>There is a newer version of {handler.get_app_name()} ({handler.get_new_version()}) available.</div>
+            <div>有更新版本的云联远程</div>
             <div #install-me.link>{translate('Click to ' + update_or_download)}</div>
             <div #download-percent style="display:hidden; padding-top: 1em;" />
         </div>;
